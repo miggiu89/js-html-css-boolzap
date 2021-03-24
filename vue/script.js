@@ -1,6 +1,9 @@
 var app = new Vue ({
     el : '#root',
     data : {
+
+        counter: 0,
+
         user:{
             name:'Matteo',
             avatar: 'img/avatar_io.jpg'
@@ -94,5 +97,9 @@ var app = new Vue ({
         ]
         
     },
-    
-})
+    methods : {
+        chatSmart(index) {
+            this.Counter = index;
+        }
+    }
+});

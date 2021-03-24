@@ -51,9 +51,11 @@
 
             <!-- sezione contatti -->
             <div class="box-contatti" >
-                <div  v-for="(contact,index) in contacts"class="contatto">
+                <div  v-for="(contact,index) in contacts"class="contatto" @click="chatSmart(index)" :class="(contact.visible) ? 'show' : 'hidden'">
                     <img :src="contact.avatar" alt="avatar">
-                    {{ contact.name }}              
+                    {{ contact.name }} 
+                    
+                     
                 </div>
             </div>
 
@@ -82,7 +84,8 @@
             <!-- finestra chat -->
             <div class="box-finestra-chat">
                 <div class="finestra">
-                    <div  class="messaggio" >
+                    <div  v-for="(mess,index) in contacts[counter].messages" class="messaggio" :class="(mess.status == 'received') ? 'received' : 'sent'">
+                        {{ mess.text}}
                     </div>
                 </div>
             </div>

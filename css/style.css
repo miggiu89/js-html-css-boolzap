@@ -8,13 +8,7 @@ body {
     width: 100%;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(
-    aqua 0%,
-    rgb(129, 189, 189) 15vh,
-    white 15vh,
-    white 100%,
-    
-    );
+    background-image: linear-gradient( rgb(22, 148, 148) 150px, rgb(214, 214, 214) 151px);
 }
 
 .container{
@@ -151,6 +145,8 @@ body {
     position: relative;
 }
 
+
+
 .contatto:hover{
     background-color: lightgrey;
 }
@@ -206,6 +202,32 @@ body {
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
+}
+
+.box-finestra-chat .finestra .messaggio {
+    width: 250px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin: 10px 0;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    word-break: break-all;
+    position: relative;
+}
+
+.box-finestra-chat .finestra .sent {
+    background-color: rgb(103, 212, 103);
+    float: right;
+    clear: both;
+}
+
+.box-finestra-chat .finestra .received {
+    background-color: white;
+    float: left;
+    clear: both;
 }
 
 .barra-scrittura {
