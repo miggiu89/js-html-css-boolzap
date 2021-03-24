@@ -1,25 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuti su Boolzap Web</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Boolzap Web</title>
 </head>
 <body>
 
@@ -30,9 +21,9 @@
 
             <!-- header sinistro -->
             <div class="header-left ">
-                    <div class="mio-avatar ">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <span>Migliori Matteo </span>
+                    <div class="mio-avatar "  >
+                        <img  alt="avatar">
+                        <span>{{ me.name }}</span>
                     </div>
 
                     <div class="icons-header">
@@ -60,8 +51,9 @@
 
             <!-- sezione contatti -->
             <div class="box-contatti" >
-                <div  class="contatto">
-                    <img src="" alt="avatar">                  
+                <div  v-for="(contact,index) in contacts"class="contatto">
+                    <img :src="contact.avatar" alt="avatar">
+                    {{ contact.name }}              
                 </div>
             </div>
 
