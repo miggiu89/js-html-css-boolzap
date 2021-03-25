@@ -46,16 +46,16 @@
             <!-- sezione ricerca -->
             <div class="search-bar" >
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat..." >
+                <input type="text" placeholder="Cerca o inizia una nuova chat..."  >
             </div>
 
             <!-- sezione contatti -->
             <div class="box-contatti" >
-                <div  v-for="(contact,index) in contacts"class="contatto" @click="chatSmart(index)" :class="(contact.visible) ? 'show' : 'hidden'">
+                <div  v-for="(contact,index) in contacts" class="contatto" v-on:click="chatSmart(index)" :class="(contact.visible) ? 'show' : 'hidden'">
                     <img :src="contact.avatar" alt="avatar">
                     {{ contact.name }} 
+                    <small v-if="contact.messages.length">{{ contact.messages[contact.messages.length -1].text}}</small>
                     
-                     
                 </div>
             </div>
 
@@ -67,10 +67,10 @@
             <!-- header right -->
             <div class="header-right">
                 <div class="avatar-contatto">
-                    <img src="img/avatar_1.jpg">
+                    <img :src="contacts[counter].avatar">
                     <div class="dati-contatto">
-                        <span>Nome contatto</span>
-                        <small>Ultimo accesso oggi alle</small> 
+                        {{ contacts[counter].name}}
+                        <small >ultimo accesso alle</small> 
                     </div>
                 </div>
                 <div class="icone-contatto">
@@ -84,8 +84,8 @@
             <!-- finestra chat -->
             <div class="box-finestra-chat">
                 <div class="finestra">
-                    <div  v-for="(mess,index) in contacts[counter].messages" class="messaggio" :class="(mess.status == 'received') ? 'received' : 'sent'">
-                        {{ mess.text}}
+                    <div  v-for="(mess,index) in contacts[counter].messages" class="messaggio" :class="(mess.status === 'received') ? 'received' : 'sent'">
+                        {{ mess.text }}
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
             <div class="barra-scrittura">
                 <div class="campo-testo">
                     <i class="far fa-smile"></i>
-                    <input  type="text" placeholder="Scrivi messaggio..." >
+                    <input  type="text" placeholder="Scrivi messaggio..." v-model="textInput" @keydown.13="insertInput">
                     <i class="fas fa-microphone"></i>
                 </div>
             </div>

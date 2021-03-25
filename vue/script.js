@@ -2,7 +2,7 @@ var app = new Vue ({
     el : '#root',
     data : {
 
-        counter: 0,
+        
 
         user:{
             name:'Matteo',
@@ -19,7 +19,8 @@ var app = new Vue ({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+
                     },
                     {
                         date: '10/01/2020 15:50:00',
@@ -94,12 +95,26 @@ var app = new Vue ({
                     }
                 ],
             },
-        ]
+        ],
+        counter: 0,
+        textInput: '',
         
     },
     methods : {
         chatSmart(index) {
             this.Counter = index;
-        }
-    }
+        },
+        insertInput(){
+            if ( this.textInput.length ){
+                this.contacts[this.counter].messages.push( {text: this.textInput, status: 'sent'} );
+                this.textInput = '';
+                setTimeout(this.Answer,1000);
+            }
+        },
+        Answer(){
+            this.contacts[this.counter].messages.push( {text: 'vabbuono', status: 'received'} );
+            }
+        },
+        
+
 });

@@ -23,6 +23,8 @@ body {
     border: 1px solid black;
 }
 
+/* left */
+
 .box-left{
     display: flex;
     flex-direction: column;
@@ -30,6 +32,8 @@ body {
     height:100vh;
     background-color: rgb(211, 208, 208);
 }
+
+/* header left */
 
 .header-left{
     height: 80px;
@@ -94,6 +98,8 @@ body {
     cursor: pointer;
 }
 
+/* sezione ricerca */
+
 .search-bar {
     width: 100%;
     height: 50px;
@@ -122,6 +128,8 @@ body {
     left: 20px;
 }
 
+/* sezione contatti */
+
 .box-contatti {
     width: 100%;
     flex-grow: 1;
@@ -145,12 +153,21 @@ body {
     position: relative;
 }
 
+.box-contatti .contatto small {
+    color: grey;
+    position: absolute;
+    bottom: 10%;
+    left: 17%;
+}
+
 
 
 .contatto:hover{
     background-color: lightgrey;
 }
 
+
+/* right */
 
 .box-right{
     display: flex;
@@ -186,6 +203,10 @@ body {
     padding-left: 10px;
 }
 
+.header-dx .avatar-contatto .dati-contatto small {
+    color: grey;
+}
+
 .header-right .icone-contatto {
     padding-right: 10px;
 }
@@ -196,6 +217,8 @@ body {
     color: gray;
     cursor: pointer;
 }
+
+/* chat */
 
 .box-finestra-chat {
     width: 100%;
@@ -219,7 +242,7 @@ body {
 }
 
 .box-finestra-chat .finestra .sent {
-    background-color: rgb(103, 212, 103);
+    background-color: rgb(153, 250, 150);
     float: right;
     clear: both;
 }
@@ -255,4 +278,10 @@ body {
     cursor: pointer;
 }
 
+.hidden {
+    display: none;
+}
 
+.show {
+    display: block;
+}
