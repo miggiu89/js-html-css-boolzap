@@ -51,7 +51,7 @@
 
             <!-- sezione contatti -->
             <div class="box-contatti" >
-                <div  v-for="(contact,index) in contacts" class="contatto" v-on:click="chatSmart(index)" :class="(contact.visible) ? 'show' : 'hidden'">
+                <div  v-for="(contact,index) in contacts" class="contatto" @click="chatSmart(index)" :class="(contact.visible) ? 'show' : 'hidden'">
                     <img :src="contact.avatar" alt="avatar">
                     {{ contact.name }} 
                     <small v-if="contact.messages.length">{{ contact.messages[contact.messages.length -1].text}}</small>

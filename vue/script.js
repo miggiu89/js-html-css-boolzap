@@ -101,8 +101,9 @@ var app = new Vue ({
         
     },
     methods : {
+
         chatSmart(index) {
-            this.Counter = index;
+            this.counter = index;
         },
         insertInput(){
             if ( this.textInput.length ){
