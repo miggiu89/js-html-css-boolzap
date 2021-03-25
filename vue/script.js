@@ -79,18 +79,52 @@ var app = new Vue ({
                 ],
             },
             {
-                name: 'Luisa',
+                name: 'Marco',
                 avatar: 'img/avatar_4.jpg',
                 visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        text: 'Andiamo al mare?',
                         status: 'sent'
                     },
                     {
                         date: '10/01/2020 15:50:00',
-                        text: 'Si, ma preferirei andare al cinema',
+                        text: 'Si, ma prima dovrei andare 4 anni in palestra',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Andrea',
+                avatar: 'img/avatar_5.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo hai visto il suv di Giancarlo?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, e mi fa schifo',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: 'img/avatar_6.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Marco ti tradisce....',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'SI LO SO ! Con Carlo per giunta!',
                         status: 'received'
                     }
                 ],
