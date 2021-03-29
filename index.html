@@ -45,8 +45,8 @@
             </div>
             <!-- sezione ricerca -->
             <div class="search-bar" >
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat..."  >
+                <i @click="search" class="fas fa-search" ></i>
+                <input type="text" placeholder="Cerca o inizia una nuova chat..." v-model="valInput" @keyup="search">
             </div>
 
             <!-- sezione contatti -->
@@ -55,7 +55,7 @@
                     <img :src="contact.avatar" alt="avatar">
                     {{ contact.name }} 
                     <small v-if="contact.messages.length">{{ contact.messages[contact.messages.length -1].text}}</small>
-                    
+                    <small v-if="contact.messages.length"> {{contact.messages[contact.messages.length -1].date}}</small>
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                     <img :src="contacts[counter].avatar">
                     <div class="dati-contatto">
                         {{ contacts[counter].name}}
-                        <small >ultimo accesso alle</small> 
+                        <small v-if="contacts[counter].messages.length">{{ contacts[counter].messages[contacts[counter].messages.length -1].date }}</small>
                     </div>
                 </div>
                 <div class="icone-contatto">
@@ -85,7 +85,14 @@
             <div class="box-finestra-chat">
                 <div class="finestra">
                     <div  v-for="(mess,index) in contacts[counter].messages" class="messaggio" :class="(mess.status === 'received') ? 'received' : 'sent'">
+                        <small @click="dropMenu(index)">
+                            <i class="fas fa-chevron-down"></i>
+                        </small>
                         {{ mess.text }}
+                        <small>{{ mess.date }}</small>
+                        <div @click="deleteMessage(index)" class="dropdown-menu" :class="mess.menu">
+                            <p>delete</p>
+                        </div>
                     </div>
                 </div>
             </div>

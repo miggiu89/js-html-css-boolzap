@@ -17,18 +17,18 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: moment().calendar(),
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent',
 
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: moment().calendar(),
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: moment().calendar(),
                         text: 'Tutto fatto!',
                         status: 'received'
                     }
@@ -40,17 +40,17 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '20/03/2020 16:30:00',
+                        date:  moment().calendar(),
                         text: 'Ciao come stai?',
                         status: 'sent'
                     },
                     {
-                        date: '20/03/2020 16:30:55',
+                        date: moment().calendar(),
                         text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received'
                     },
                     {
-                        date: '20/03/2020 16:35:00',
+                        date: moment().calendar(),
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent'
                     }
@@ -62,17 +62,17 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '28/03/2020 10:10:40',
+                        date: moment().calendar(),
                         text: 'La Marianna va in campagna',
                         status: 'received'
                     },
                     {
-                        date: '28/03/2020 10:20:10',
+                        date: moment().calendar(),
                         text: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent'
                     },
                     {
-                        date: '28/03/2020 16:15:22',
+                        date: moment().calendar(),
                         text: 'Ah scusa!',
                         status: 'received'
                     }
@@ -84,12 +84,12 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: moment().calendar(),
                         text: 'Andiamo al mare?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: moment().calendar(),
                         text: 'Si, ma prima dovrei andare 4 anni in palestra',
                         status: 'received'
                     }
@@ -101,12 +101,12 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: moment().calendar(),
                         text: 'Lo hai visto il suv di Giancarlo?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: moment().calendar(),
                         text: 'Si, e mi fa schifo',
                         status: 'received'
                     }
@@ -118,12 +118,12 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: moment().calendar(),
                         text: 'Marco ti tradisce....',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: moment().calendar(),
                         text: 'SI LO SO ! Con Carlo per giunta!',
                         status: 'received'
                     }
@@ -132,6 +132,8 @@ var app = new Vue ({
         ],
         counter: 0,
         textInput: '',
+        names:'',
+        valInput:''
         
     },
     methods : {
@@ -148,8 +150,20 @@ var app = new Vue ({
         },
         Answer(){
             this.contacts[this.counter].messages.push( {text: 'vabbuono', status: 'received'} );
-            }
+            
         },
-        
-
+        search(){
+            this.contacts.forEach((element) => {
+                this.names = element.name.toLowerCase();
+                element.visible = ( this.names.indexOf(this.valInput.toLowerCase()) > -1 ) ? true : false;
+            });
+        },
+        dropMenu(index){
+            this.contacts[this.counter].messages[index].menu = ( this.contacts[this.counter].message[index].menu == 'hidden' ) ?  'show' : 'hidden';
+        },
+        deleteMessage(index){
+            this.contacts[this.counter].messages.splice(index, 1);
+        }
+    },
+    
 });

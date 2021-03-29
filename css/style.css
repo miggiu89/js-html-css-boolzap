@@ -15,13 +15,13 @@ body {
     margin: 0 auto;
     margin-top: 20px;
     width: 90%;
-    height: 100vh;
+    min-width: 950px;
+    height: 90vh;
     display: flex;
+    justify-content: center;
 }
 
-.debug{
-    border: 1px solid black;
-}
+
 
 /* left */
 
@@ -160,6 +160,18 @@ body {
     left: 17%;
 }
 
+.box-contatti .contatto small:first-child {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.box-contatti .contatto small:last-child{
+    bottom: 10%;
+    left: 60%;
+}
+
 
 
 .contatto:hover{
@@ -241,6 +253,40 @@ body {
     position: relative;
 }
 
+.box-finestra-chat .finestra .messaggio small {
+    align-self: flex-end;
+    margin-top: 5px;
+    color: gray;
+}
+
+.box-finestra-chat .finestra .messaggio small i {
+    cursor: pointer;
+    opacity: 0;
+}
+
+.box-finestra-chat .finestra .messaggio:hover small i {
+    opacity: 1;
+}
+
+.box-finestra-chat .finestra .messaggio .dropdown-menu {
+    width: 50%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    right: 0;
+    top: 35px;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.box-finestra-chat .finestra .messaggio .dropdown-menu p:hover {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+
 .box-finestra-chat .finestra .sent {
     background-color: rgb(153, 250, 150);
     float: right;
@@ -257,6 +303,7 @@ body {
     position: fixed;
     bottom: 0;
     background-color: rgb(245, 245, 245);
+    clear: both;
 }
 
 .barra-scrittura .campo-testo {
